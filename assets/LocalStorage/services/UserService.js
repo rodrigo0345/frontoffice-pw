@@ -69,6 +69,7 @@ export default class UserService {
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     const result = await signInWithPopup(auth, provider);
+    console.log({result});
 
     const user = result.user;
     if (!user) return null;
