@@ -114,5 +114,3 @@ const initializeLocalStorage = () => {
         }
     });
 };
-
-window.onload = initializeLocalStorage({});
