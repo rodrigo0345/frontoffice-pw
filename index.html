@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="templatemo" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+      import {
+        getAuth,
+        GoogleAuthProvider,
+        signInWithPopup,
+      } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyCwWQ2WuS1mWYpt2FctnQY9cc4OK1XSsUw",
+        authDomain: "pw24-c5c9c.firebaseapp.com",
+        projectId: "pw24-c5c9c",
+        storageBucket: "pw24-c5c9c.appspot.com",
+        messagingSenderId: "219742272214",
+        appId: "1:219742272214:web:8dfe74f904de46ac7f6777",
+        measurementId: "G-W3H8S9V2SC",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const analytics = getAnalytics(app);
+
+      export { auth, GoogleAuthProvider, signInWithPopup };
+    </script>
+    <title>GoHelp</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-snapx-photography.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+
+    <script
+      type="module"
+      src="./assets/LocalStorage/services/InitiativeService.js"
+    ></script>
+    <script
+      type="module"
+      src="./assets/LocalStorage/services/UserService.js"
+    ></script>
+    <script type="module" src="./assets/js/populateLocalStorage.js"></script>
+
+    <script
+      type="module"
+      src="./assets/LocalStorage/services/SuggestionService.js"
+    ></script>
+
+    <script src="./assets/js/scriptLanding.js" type="module"></script>
+    <!--
+
+TemplateMo 576 SnapX Photography
+
+https://templatemo.com/tm-576-snapx-photography
+
+-->
+  </head>
+
+  <body>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="index.html" class="logo">
+                <img
+                  src="assets/images/logo.png"
+                  class="float-end"
+                  alt="GoHelp Logo"
+                  style="margin-right: 40%"
+                />
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="initiatives.html">Initiatives</a></li>
+                <li><a href="index.html#suggestion">Make a Suggestion</a></li>
+              </ul>
+              <div class="border-button">
+                <a
+                  id="modal_trigger"
+                  href="#modal"
+                  class="sign-in-up"
+                  style="margin-right: 25%"
+                  ><i class="fa fa-user"></i> Login</a
+                >
+              </div>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- Login Start  -->
+    <div id="modal" class="popupContainer" style="display: none">
+      <div class="popupHeader">
+        <span class="header_title">Login</span>
+        <span class="modal_close"><i class="fa fa-times"></i></span>
+      </div>
+      <section class="popupBody">
+        <div class="social_login">
+          <button
+            id="googleSignInButton"
+            style="border: none; padding: 0px 0px 0px 0px"
+          >
+            <a class="social_box google" style="margin-bottom: 0px">
+              <span class="icon"><i class="fab fa-google-plus"></i></span>
+              <span class="icon_title">Connect with Google</span>
+            </a>
+          </button>
+        </div>
+      </section>
+    </div>
+    <!-- Login End -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1">
+            <div class="header-text">
+              <h2>
+                Join <em>GoHelp</em> in the <em>Fight</em> Against Food Waste
+                and for Food Security
+              </h2>
+              <p>
+                Together, we can make a difference! Discover how you can
+                contribute to a more sustainable and secure food system.
+              </p>
+              <div class="buttons">
+                <div class="big-border-button">
+                  <a href="#suggestion">Suggest an Initiative</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- ***** Carousel Start ***** -->
+    <section class="featured-items" id="carousel">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div
+              class="owl-features owl-carousel"
+              style="position: relative; z-index: 5"
+            >
+              <div class="item" data-index="0">
+                <div class="thumb">
+                  <img src="assets/images/featured-01.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title0"></h4>
+                      <ul id="carousel-list0"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item" data-index="1">
+                <div class="thumb">
+                  <img src="assets/images/featured-02.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title1"></h4>
+                      <ul id="carousel-list1"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item" data-index="2">
+                <div class="thumb">
+                  <img src="assets/images/featured-03.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title2"></h4>
+                      <ul id="carousel-list2"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item" data-index="3">
+                <div class="thumb">
+                  <img src="assets/images/featured-01.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title3"></h4>
+                      <ul id="carousel-list3"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item" data-index="4">
+                <div class="thumb">
+                  <img src="assets/images/featured-02.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title4"></h4>
+                      <ul id="carousel-list4"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item" data-index="5">
+                <div class="thumb">
+                  <img src="assets/images/featured-03.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title5"></h4>
+                      <ul id="carousel-list5"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item" data-index="6">
+                <div class="thumb">
+                  <img src="assets/images/featured-01.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title6"></h4>
+                      <ul id="carousel-list6"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item" data-index="7">
+                <div class="thumb">
+                  <img src="assets/images/featured-02.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title7"></h4>
+                      <ul id="carousel-list7"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item" data-index="8">
+                <div class="thumb">
+                  <img src="assets/images/featured-03.jpg" alt="" />
+                  <div class="hover-effect">
+                    <div class="content">
+                      <h4 id="carousel-title8"></h4>
+                      <ul id="carousel-list8"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Carousel End   ***** -->
+
+    <!-- ***** Categories Start ***** -->
+    <section class="popular-categories" id="initiative_types">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="section-heading">
+              <h4>Check Out our <em>Initiatives</em></h4>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="main-button">
+              <a href="initiatives.html">Discover Initiatives</a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-4">
+            <div class="popular-item h-100">
+              <div class="top-content">
+                <div class="icon">
+                  <img src="assets/images/types/shield-shaded.svg" alt="" />
+                </div>
+                <div class="right">
+                  <h4>Food Safety</h4>
+                  <span><em id="fs-init">0</em> Open Events</span>
+                </div>
+              </div>
+              <div class="thumb">
+                <img src="assets/images/types/popular-01.png" alt="" />
+                <span class="category">Top Initiative</span>
+                <span class="likes" id="foodSafetyMaxParticipants"></span>
+              </div>
+              <div class="border-button">
+                <a href="initiatives.html?event_type=food_safety"
+                  >Food Safety Events</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-4">
+            <div class="popular-item h-100">
+              <div class="top-content">
+                <div class="icon">
+                  <img src="assets/images/types/heart-half.svg" alt="" />
+                </div>
+                <div class="right">
+                  <h4>Healthy Diets</h4>
+                  <span><em id="hd-init">0</em> Open Events</span>
+                </div>
+              </div>
+              <div class="thumb">
+                <img src="assets/images/types/popular-02.png" alt="" />
+                <span class="category">Top Initiative</span>
+                <span class="likes" id="healthyDietsMaxParticipants"></span>
+              </div>
+              <div class="border-button">
+                <a href="initiatives.html?event_type=healthy_diets"
+                  >healthy diets Events</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-4">
+            <div class="popular-item h-100">
+              <div class="top-content">
+                <div class="icon">
+                  <img src="assets/images/types/bootstrap-reboot.svg" alt="" />
+                </div>
+                <div class="right">
+                  <h4>Zero Waste</h4>
+                  <span><em id="zw-init">0</em> Open Events</span>
+                </div>
+              </div>
+              <div class="thumb">
+                <img src="assets/images/types/popular-03.png" alt="" />
+                <span class="category">Top Initiative</span>
+                <span class="likes" id="zeroWasteMaxParticipants"></span>
+              </div>
+              <div class="border-button">
+                <a href="initiatives.html?event_type=zero_waste"
+                  >Zero waste Events</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6 mb-4">
+            <div class="popular-item h-100">
+              <div class="top-content">
+                <div class="icon">
+                  <img src="assets/images/types/truck.svg" alt="" />
+                </div>
+                <div class="right">
+                  <h4>Food Rescue</h4>
+                  <span><em id="fd-init">0</em>Open Events</span>
+                </div>
+              </div>
+              <div class="thumb">
+                <img src="assets/images/types/popular-04.png" alt="" />
+                <span class="category">Top Initiative</span>
+                <span class="likes" id="foodRescueMaxParticipants"></span>
+              </div>
+              <div class="border-button">
+                <a href="initiatives.html?event_type=food_rescue"
+                  >Food Rescue Events</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Categories End ***** -->
+
+    <!-- ***** Stats Start ***** -->
+    <section class="closed-Events" id="stats">
+      <div class="container-fluid d-flex flex-row gap-2" style="padding: 0 5%">
+        <div class="closed-text text-start">
+          <h1 class="fs-1" style="color: #2a2a2a">
+            <strong
+              >Join GoHelp in the Fight Against Food Waste and for Food
+              Security</strong
+            >
+          </h1>
+          <br />
+          <br />
+          <h6 class="fw-normal">
+            Together, we can make a difference! Discover how you can contribute
+            to a more sustainable and secure food system.
+          </h6>
+          <br />
+          <div class="buttons">
+            <div class="custom-buttons">
+              <a href="#suggestion">Suggest an Initiative</a>
+            </div>
+          </div>
+        </div>
+        <div class="closed-circles text-md-start">
+          <div class="circle-container">
+            <div class="circle circle-one shadow-lg">
+              <p id="nEvents">0<br />Events</p>
+            </div>
+            <div class="circle circle-two shadow-lg">
+              <p id="nWorkers">0<br />Workers</p>
+            </div>
+            <div class="circle circle-three shadow-lg">
+              <p id="nParticipants">0<br />Participants</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Stats Events End ***** -->
+
+    <!-- ***** Past Events Start  ***** -->
+    <section class="pricing-plans" id="past_events">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-heading text-center">
+              <h6>Past Events</h6>
+              <h4>Previous <em>Events</em> Held By Our Team</h4>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pricing-item col-12 card">
+              <img
+                src="assets/images/pricing-01.jpg"
+                class="card-img-top"
+                alt=""
+              />
+              <div class="card-body">
+                <ul class="list-unstyled row row-cols-2">
+                  <li class="left-info">
+                    <p
+                      class="card-text"
+                      id="pEventsParticipants0"
+                      style="color: black; font-weight: 500"
+                    >
+                      ?? participants
+                    </p>
+                  </li>
+                  <li class="right-info">
+                    <p
+                      class="card-text"
+                      id="pEventsType0"
+                      style="color: black; font-weight: 500"
+                    >
+                      Zero Waste
+                    </p>
+                  </li>
+                  <li class="left-info">
+                    <p
+                      class="card-text"
+                      id="pEventsDate0"
+                      style="color: black; font-weight: 500"
+                    >
+                      ??/??/????
+                    </p>
+                  </li>
+                  <li class="right-info">
+                    <p
+                      class="card-text"
+                      id="pEventsLocal0"
+                      style="color: black; font-weight: 500"
+                    >
+                      Local
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pricing-item col-12 card">
+              <img
+                src="assets/images/pricing-02.jpg"
+                class="card-img-top"
+                alt=""
+              />
+              <div class="card-body">
+                <ul class="list-unstyled row row-cols-2">
+                  <li class="left-info">
+                    <p
+                      class="card-text"
+                      id="pEventsParticipants1"
+                      style="color: black; font-weight: 500"
+                    >
+                      ?? participants
+                    </p>
+                  </li>
+                  <li class="right-info">
+                    <p
+                      class="card-text"
+                      id="pEventsType1"
+                      style="color: black; font-weight: 500"
+                    >
+                      ?????? ??????
+                    </p>
+                  </li>
+                  <li class="left-info">
+                    <p
+                      class="card-text"
+                      id="pEventsDate1"
+                      style="color: black; font-weight: 500"
+                    >
+                      ??/??/????
+                    </p>
+                  </li>
+                  <li class="right-info">
+                    <p
+                      class="card-text"
+                      id="pEventsLocal1"
+                      style="color: black; font-weight: 500"
+                    >
+                      Local
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pricing-item col-12 card">
+              <img
+                src="assets/images/pricing-03.jpg"
+                class="card-img-top"
+                alt=""
+              />
+              <div class="card-body">
+                <ul class="list-unstyled row row-cols-2">
+                  <li class="left-info">
+                    <p
+                      class="card-text"
+                      id="pEventsParticipants2"
+                      style="color: black; font-weight: 500"
+                    >
+                      ?? participants
+                    </p>
+                  </li>
+                  <li class="right-info">
+                    <p
+                      class="card-text"
+                      id="pEventsType2"
+                      style="color: black; font-weight: 500"
+                    >
+                      Food Rescue
+                    </p>
+                  </li>
+                  <li class="left-info">
+                    <p
+                      class="card-text"
+                      id="pEventsDate2"
+                      style="color: black; font-weight: 500"
+                    >
+                      ??/??/????
+                    </p>
+                  </li>
+                  <li class="right-info">
+                    <p
+                      class="card-text"
+                      id="pEventsLocal2"
+                      style="color: black; font-weight: 500"
+                    >
+                      Local
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="border-button text-center pt-5">
+            <a href="initiatives.html">Browse Open Events</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ***** Past Events End ***** -->
+
+    <!-- ***** Suggest Initiative Start ***** -->
+    <section class="suggestion" id="suggestion">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-md-8">
+            <form class="suggestion-form" id="suggestionForm">
+              <h1>Submit Your Ideas</h1>
+              <div class="row">
+                <div class="form-group col-sm-5">
+                  <input
+                    type="text"
+                    id="eventName"
+                    class="form-field"
+                    placeholder=""
+                    required
+                  />
+                  <label for="eventName">Event Name</label>
+                </div>
+                <div class="form-group col-sm-4">
+                  <input
+                    type="text"
+                    id="local"
+                    class="form-field"
+                    placeholder=""
+                    required
+                  />
+                  <label for="local">Location</label>
+                </div>
+                <div class="form-group col-sm-3">
+                  <input
+                    type="text"
+                    id="numParticipants"
+                    class="form-field"
+                    placeholder=""
+                    required
+                  />
+                  <label for="numParticipants">Nº of Participants</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-6">
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-field"
+                    placeholder=""
+                    required
+                  />
+                  <label for="email">Email</label>
+                </div>
+                <div class="form-group col-sm-3">
+                  <input
+                    type="text"
+                    id="budget"
+                    class="form-field"
+                    placeholder=""
+                    required
+                  />
+                  <label for="budget">Budget</label>
+                </div>
+                <div class="form-group col-sm-3">
+                  <select id="initiativeType" required>
+                    <option value="" disabled selected>Initiative Type</option>
+                    <option value="food_safety">Food Safety</option>
+                    <option value="healthy_diets">Healthy Diets</option>
+                    <option value="zero_waste">Zero Waste</option>
+                    <option value="food_rescue">Food Rescue</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea
+                  placeholder=""
+                  id="description"
+                  rows="5"
+                  class="form-field"
+                  required
+                ></textarea>
+                <label for="description" id="subjectl">Subject</label>
+              </div>
+              <button type="submit" class="border-button mb-1">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ***** Suggest Initiative End ***** -->
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright © 2024 <a href="#">GoHelp</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ***** Footer End ***** -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script type="module">
+      import { UserService } from "./assets/LocalStorage/services/UserService.js";
+      document
+        .getElementById("googleSignInButton")
+        .addEventListener("click", () => {
+          const userService = new UserService();
+
+          userService.loginWithGoogle();
+        });
+    </script>
+  </body>
+</html>
