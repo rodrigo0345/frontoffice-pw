@@ -87,10 +87,14 @@ export default class UserService {
     // Check if the user is already in the databased
     // If not, add It
     // If yes, return the user
+    console.log({user});
     const userExists = this.userRepository.find({ email: user.email });
+    console.log({userExists});
     if (userExists) {
+      console.log({userExists});
       if (userExists.role === "admin") {
         // send to the admin page, TODO alterar o link para o correto
+        console.log("redirecting to admin page")
         window.location.href =
           "https://rodrigo0345.github.io/backoffice-pw/#/dashboard";
         return userExists;
