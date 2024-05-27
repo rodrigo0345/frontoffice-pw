@@ -5,6 +5,7 @@ export default class SuggestionService {
     initiativeRepository = new InitiativeRepository();
     constructor() { }
     createSuggestion(suggestion) {
+    console.log({ suggestion })
         if (suggestion.eventName === "" ||
             suggestion.email === "" ||
             suggestion.description === "" ||
