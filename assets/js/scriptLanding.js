@@ -235,6 +235,7 @@ document.getElementById("suggestionForm").addEventListener("submit", function (e
         suggestionService.createSuggestion({ suggestion });
         alert("Suggestion submitted successfully!");
     } catch (error) {
+        console.error(error);
         alert("An error occurred while submitting your suggestion. Please try again later.");
     }
 });
