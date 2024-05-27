@@ -1,11 +1,10 @@
 import InitiativeRepository from "../repositories/InitiativeRepository.js";
 import SuggestionRepository from "../repositories/SuggestionRepository.js";
 export default class SuggestionService {
-    suggestionRepository = new SuggestionRepository();
+    suggestionService = new SuggestionService();
     initiativeRepository = new InitiativeRepository();
     constructor() { }
     createSuggestion(suggestion) {
-    console.log({ suggestion })
         if (suggestion.eventName === "" ||
             suggestion.email === "" ||
             suggestion.description === "" ||
@@ -16,6 +15,7 @@ export default class SuggestionService {
             suggestion.budget <= 0) {
             throw new Error("Event Name, Email and Description, Local, Number of Participants are required.");
         }
+    console.log({ suggestion })
         if (suggestion.date <= new Date()) {
             throw new Error("Invalid Date");
         }
@@ -28,7 +28,7 @@ export default class SuggestionService {
         suggestion.createdOn = new Date();
         suggestion.isApproved = false;
         suggestion.isDeleted = false;
-        return this.suggestionRepository.create(suggestion);
+        return this.suggestionService.create(suggestion);
     }
     find(query) {
         return this.suggestionRepository.find(query);
