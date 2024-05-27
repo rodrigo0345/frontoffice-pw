@@ -217,12 +217,16 @@ document.getElementById("suggestionForm").addEventListener("submit", function (e
     const local = document.getElementById("local").value;
     const description = document.getElementById("description").value;
 
+  console.log({
+    budgetElement: budget,
+    numParticipantsElement: numParticipants,
+  })
+
     const suggestion = {
         eventName,
         eventType,
         status: "Pending",
         createdOn: new Date(),
-        numParticipants,
         rejectedReason: "",
         email,
         local,
@@ -230,6 +234,7 @@ document.getElementById("suggestionForm").addEventListener("submit", function (e
         isApproved: false,
         isDeleted: false,
         budget,
+        numParticipants 
     };
     try {
         suggestionService.createSuggestion({ suggestion });
