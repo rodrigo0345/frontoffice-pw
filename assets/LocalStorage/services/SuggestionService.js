@@ -25,6 +25,7 @@ export default class SuggestionService {
       throw new Error("Number of Participants is required.");
     }
 
+    console.log(suggestion.numParticipants, suggestion.budget)
     if (isNaN(Number(suggestion.numParticipants))) {
       throw new Error("Number of Participants must be a number.");
     }
