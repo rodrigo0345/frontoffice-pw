@@ -217,11 +217,6 @@ document.getElementById("suggestionForm").addEventListener("submit", function (e
     const local = document.getElementById("local").value;
     const description = document.getElementById("description").value;
 
-  console.log({
-    budgetElement: budget,
-    numParticipantsElement: numParticipants,
-  })
-
     const suggestion = {
         eventName,
         eventType,
