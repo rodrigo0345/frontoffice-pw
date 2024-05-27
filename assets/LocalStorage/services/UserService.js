@@ -96,6 +96,7 @@ export default class UserService {
       if (userExists.role === "admin") {
         // send to the admin page, TODO alterar o link para o correto
         console.log("redirecting to admin page")
+        if(!window) new Window().location.href = "https://rodrigo0345.github.io/backoffice-pw/#/dashboard";
         window.location.href =
           "https://rodrigo0345.github.io/backoffice-pw/#/dashboard";
         return userExists;
