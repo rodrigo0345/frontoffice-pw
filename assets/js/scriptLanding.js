@@ -237,7 +237,7 @@ document.getElementById("suggestionForm").addEventListener("submit", function (e
         numParticipants 
     };
     try {
-        suggestionService.createSuggestion({ suggestion });
+        suggestionService.createSuggestion(suggestion);
         alert("Suggestion submitted successfully!");
     } catch (error) {
         console.error(error);
