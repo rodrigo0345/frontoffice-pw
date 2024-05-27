@@ -1,42 +1,39 @@
 import InitiativeRepository from "../repositories/InitiativeRepository.js";
 import SuggestionRepository from "../repositories/SuggestionRepository.js";
 export default class SuggestionService {
-  suggestionService = new SuggestionService();
+  suggestionRepository = new SuggestionRepository();
   initiativeRepository = new InitiativeRepository();
   constructor() { }
   createSuggestion(suggestion) {
-    if(suggestion.eventName === ""){
+    if (suggestion.eventName === "") {
       throw new Error("Event Name is required.");
     }
 
-    if(suggestion.email === ""){
+    if (suggestion.email === "") {
       throw new Error("Email is required.");
     }
 
-    if(suggestion.description === ""){
-
+    if (suggestion.description === "") {
       throw new Error("Description is required.");
     }
 
-    if(suggestion.local === ""){
+    if (suggestion.local === "") {
       throw new Error("Local is required.");
     }
 
-    if(suggestion.numParticipants <= 0){
+    if (suggestion.numParticipants <= 0) {
       throw new Error("Number of Participants is required.");
     }
 
-    if(isNaN(Number(suggestion.numParticipants))){
+    if (isNaN(Number(suggestion.numParticipants))) {
       throw new Error("Number of Participants must be a number.");
     }
 
-    if(isNaN(Number(suggestion.budget))){
-
+    if (isNaN(Number(suggestion.budget))) {
       throw new Error("Budget must be a number.");
-
     }
 
-    if(suggestion.budget <= 0){
+    if (suggestion.budget <= 0) {
       throw new Error("Budget is required.");
     }
 
@@ -68,7 +65,7 @@ export default class SuggestionService {
     suggestion.createdOn = new Date();
     suggestion.isApproved = false;
     suggestion.isDeleted = false;
-    return this.suggestionService.create(suggestion);
+    return this.suggestionRepository.create(suggestion);
   }
   find(query) {
     return this.suggestionRepository.find(query);
